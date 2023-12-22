@@ -29,7 +29,7 @@ public class GuestBook {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User owner;
-
+//hwefhqwhef
     @Column(name = "user_post_id")
     private Long userPostId;
 
