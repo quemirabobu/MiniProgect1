@@ -95,6 +95,7 @@ bootJar {
     doLast {
         file(archiveFile).setExecutable(true)
     }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
 }
 
