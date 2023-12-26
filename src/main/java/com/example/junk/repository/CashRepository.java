@@ -1,0 +1,1 @@
+package com.example.junk.repository;import com.example.junk.domain.UserDotori;import org.springframework.data.jpa.repository.JpaRepository;import java.util.List;public interface CashRepository extends JpaRepository<UserDotori, Integer> {    List<UserDotori> findTop5ByUserNameAndDotoriGreaterThanOrderByUserRegDateTimeDesc(String userName, Long dotori);}
