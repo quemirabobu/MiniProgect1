@@ -84,7 +84,7 @@ public class BelongingsController {
 
 
 
-        mv.setViewName("/haha.html");
+        mv.setViewName("/decominiha.html");
         return mv;
     }
 
