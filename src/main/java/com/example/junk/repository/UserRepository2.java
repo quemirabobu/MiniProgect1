@@ -16,8 +16,8 @@ public interface UserRepository2 extends JpaRepository<User, Long> {
     Optional<User> findByUsername(@Param("userName") String userName);
 
     @Modifying
-    @Query(value="update H_MEMBER" +
+    @Query(value="update h_member " +
             "       set bamtori = :bamtori" +
             "       where user_id = :id", nativeQuery = true)
-    void saveBamtori(@Param("id") long id, @Param("bamtori") int bamtori);
+    void saveBamtori(@Param("id") long id, @Param("bamtori") long bamtori);
 }

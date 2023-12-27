@@ -32,8 +32,12 @@ public class PurchasedProductService {
     }
 
     public ProductEntity getProductInfo(long pId) {
-        if(productRepository.findById(pId).isEmpty())
-            return null;
+        System.out.println("this is pcp service");
+        System.out.println(pId);
+        System.out.println(" this is pId");
+        if(productRepository.findById(pId).isEmpty()){
+            System.out.println("받아온 pcp가 없음");
+            return null;}
 
         return productRepository.findById(pId).get();
     }

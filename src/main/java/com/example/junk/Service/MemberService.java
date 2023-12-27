@@ -17,6 +17,10 @@ public class MemberService {
 
     //join함수 실행 ->회원가입 알아서 저장
     public void join(User user) {
+
+        user.setBamtori(2000);
+
+
         memberRepository.save(user);
     }
     public User getid(String nickname)
