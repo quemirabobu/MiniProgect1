@@ -52,7 +52,7 @@ public class DiaryController {
 //        List<User> users = userService.getAllUsers();
 //        mv.addObject("users", users);
 //        mv.addObject("diary", new Diary());
-//        mv.setViewName("/MiniHomePage/diaryView");
+//        mv.setViewName("/minihomepage/diaryView");
 //
 //        return mv;
 //    }
@@ -110,7 +110,7 @@ public class DiaryController {
         mv.addObject("loginUser", loginUser); // 로그인 사용자를 뷰에 전달
         mv.addObject("targetUser", targetUser); // targetUser를 뷰에 전달
 
-        mv.setViewName("/MiniHomePage/diaryWrite");
+        mv.setViewName("/minihomepage/diaryWrite");
         return mv;
     }
 
@@ -167,7 +167,7 @@ public class DiaryController {
         User loginUser = (User) session.getAttribute("loginUser");
         mv.addObject("loginUser", targetUser);
 
-        mv.setViewName("/MiniHomePage/diaryUpdate");
+        mv.setViewName("/minihomepage/diaryUpdate");
         return mv;
     }
 
@@ -176,7 +176,7 @@ public class DiaryController {
     public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("diary") Diary diaryDetails, BindingResult result, HttpSession session) throws NotFoundException {
 
         if (result.hasErrors()) {
-            return "/MiniHomePage/diaryUpdate";
+            return "/minihomepage/diaryUpdate";
         }
 
         // 로그인한 사용자의 정보 가져오기

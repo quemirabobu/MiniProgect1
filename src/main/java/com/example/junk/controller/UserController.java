@@ -52,7 +52,7 @@ private final PurchasedProductRepository purchasedProductRepository;
     public String homePView()  {
 
 
-        return "MiniHomePage";
+        return "minihomepage";
     }
 
 

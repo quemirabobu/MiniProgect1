@@ -143,7 +143,7 @@ public class MiniController {
         List<PurchasedProductEntity> belongingsList = belongingsService.findById(targetUser.getId()).stream().filter(b -> b.getProductEntity().getProductCategory().equals("음악")).filter(z -> z.getApplied() == 'o').collect(Collectors.toList());
         model.addAttribute("belongingsList", belongingsList);
 //        return "redirect:/MiniMain-view?userId=" + targetUser.getId();
-        return "/MiniHomePage/music";
+        return "/minihomepage/music";
     }
 
 
@@ -160,7 +160,7 @@ public class MiniController {
         System.out.println(fromMiniMain);
 
 
-        ModelAndView mv = new ModelAndView("/MiniHomePage/Main");
+        ModelAndView mv = new ModelAndView("/minihomepage/Main");
 
         // If userId is given, use that. Otherwise, use logged in user's ID
         User targetUser = (userId != null) ? userService.getUserById(userId): (User) session.getAttribute("loginUser");
@@ -390,7 +390,7 @@ public class MiniController {
         session.setAttribute("loginUser", loginUser);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/MiniHomePage/Main");
+        modelAndView.setViewName("redirect:/minihomepage/Main");
         return modelAndView;
     }
 
@@ -401,7 +401,7 @@ public class MiniController {
         UserPost userPost = userPostService.getPostsByUser(loginUser); // UserPostService를 통해 상태메시지 조회
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("MiniHomePage/Main");
+        modelAndView.setViewName("minihomepage/Main");
 
         if (userPost == null) {
 //            userPost = new UserPost();
@@ -439,7 +439,7 @@ public class MiniController {
         session.setAttribute("loginUser", loginUser);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/MiniHomePage/Main");
+        modelAndView.setViewName("redirect:/minihomepage/Main");
         return modelAndView;
     }
 
@@ -450,7 +450,7 @@ public class MiniController {
         UserPost userPost = userPostService.getPostsByUser(loginUser); // UserPostService를 통해 사용자의 포스트 가져오기
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("MiniHomePage/Main");
+        modelAndView.setViewName("minihomepage/Main");
 
         if (userPost == null) {
 //            userPost = new UserPost();
@@ -573,7 +573,7 @@ public class MiniController {
         }
 
 
-        return "/MiniHomePage/GuestBook";
+        return "/minihomepage/GuestBook";
     }
 
 
@@ -637,7 +637,7 @@ public class MiniController {
         }
         mv.addObject("users", users);
         mv.addObject("diary", new Diary());
-        mv.setViewName("/MiniHomePage/diaryView");
+        mv.setViewName("/minihomepage/diaryView");
 
         return mv;
     }
@@ -672,7 +672,7 @@ public class MiniController {
             , @RequestParam(value = "page", defaultValue = "0") int page) {
         session.setAttribute("fromMiniMain", false);
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/MiniHomePage/Picture");
+        mv.setViewName("/minihomepage/Picture");
 
         User targetUser = (userId != null) ? userService.getUserById(userId) : (User) session.getAttribute("loginUser");
         session.setAttribute("targetUser", targetUser);
@@ -864,7 +864,7 @@ public class MiniController {
     @GetMapping(value = "/Upload-photo")
     public ModelAndView showUploadPhotoPage(HttpSession session, @RequestParam(value = "userId", required = false) Long userId) {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/MiniHomePage/UploadPhoto");
+        mv.setViewName("/minihomepage/UploadPhoto");
 
         User targetUser = (userId != null) ? userService.getUserById(userId) : (User) session.getAttribute("loginUser");
         session.setAttribute("targetUser", targetUser);
@@ -945,7 +945,7 @@ public class MiniController {
     @GetMapping("/musicq")
     public ModelAndView musicqq(HttpSession session, Model model) {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/MiniHomePage/music");
+        mv.setViewName("/minihomepage/music");
 
         User loginUser = (User) session.getAttribute("loginUser");
 
@@ -992,7 +992,7 @@ public class MiniController {
         Boolean fromMiniMain = (Boolean) session.getAttribute("fromMiniMain");
         session.removeAttribute("fromMiniMain");
         System.out.println(fromMiniMain);
-        ModelAndView mv = new ModelAndView("/MiniHomePage/Main");
+        ModelAndView mv = new ModelAndView("/minihomepage/Main");
         // If userId is given, use that. Otherwise, use logged in user's ID
         User targetUser = (userId != null) ? userService.getUserById(userId) : (User) session.getAttribute("loginUser");
         // 상태메시지 가져오기
